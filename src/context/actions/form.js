@@ -1,5 +1,5 @@
-const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
+import baseURL from './baseURL'
 export async function initCategories(dispatch) {
-  fetch(url).then((resp) => resp.json())
+  fetch(`${baseURL}/list.php?c=list`).then((resp) => resp.json())
     .then((resp) => dispatch({type: "initCategories", payload: resp.drinks}))
 }

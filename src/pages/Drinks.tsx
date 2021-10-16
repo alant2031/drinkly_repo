@@ -8,35 +8,35 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import List from '../components/List'
 import Loading from '../components/Loading'
 
-import { initialForm, formReducer } from '../context'
+import { initialForm, initialDrinks, formReducer, drinksReducer } from '../context'
 import { initCategories } from '../context/actions'
+import { listByCategory } from '../context/actions'
 
-const drinks = [
-  {
-    strDrink: "my_drink One"
-  },
-  {
-    strDrink: "my_drink Two"
-  },
-  {
-    strDrink: "my_drink Three"
-  },
-]
 
 export default function Drinks() {
   const [isLoading, setIsLoading] = React.useState(true)
+  const [drinks, setDrinks] = React.useState([])
   const [categories, setCategories] = React.useState([])
   const [showFilter, setShowFilter] = React.useState(false)
-  const [state, dispatch] = React.useReducer(formReducer, initialForm)
+  const [formState, formDispatch] = React.useReducer(formReducer, initialForm)
+  const [drinksState, drinksDispatch] = React.useReducer(drinksReducer, initialDrinks)
 
   React.useEffect(() => {
-    initCategories(dispatch)
-      .then(() => setIsLoading(false))
+    initCategories(formDispatch)
+      .then(() => listByCategory(drinksDispatch))
+      .then(() => {
+        setTimeout(() => setIsLoading(false), 1000)
+        
+      })
   }, [])
 
   React.useEffect(() => {
-    setCategories(state.categories)
-  }, [state])
+    setCategories(formState.categories)
+  }, [formState])
+
+  React.useEffect(() => {
+    setDrinks(drinksState.drinks)
+  }, [drinksState])
 
   return (
     <div>

@@ -2,23 +2,23 @@ import React from 'react'
 
 interface CardProps {
   strDrink: string,
-  strDrinkThumb?: string,
-  idDrink?: string,  
+  strDrinkThumb: string,
+  idDrink: string,  
 }
 export default function Card(props: CardProps) {
   return (
     <div className="col">
       <div className="card shadow-sm">
-        <svg className="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        
+        <img src={props.strDrinkThumb} alt={props.strDrink} />
 
         <div className="card-body">
-          <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p className="h2 text-kombu">{props.strDrink}</p>
           <div className="d-flex justify-content-between align-items-center">
             <div className="btn-group">
-              <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+              <button type="button" className="btn btn-sm btn-outline-secondary text-olive">View</button>
             </div>
-            <small className="text-muted">9 mins</small>
+            <small className="text-muted">ID: {props.idDrink}</small>
           </div>
         </div>
       </div>

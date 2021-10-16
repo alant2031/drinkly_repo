@@ -1,5 +1,6 @@
 import React from "react"
 import formReducer from "./reducers/formReducer"
+import drinksReducer from "./reducers/drinksReducer"
 
 const initialForm: any = {
 
@@ -23,5 +24,6 @@ export {
   initialForm,
   initialDrinks,
   initialDrink,
-  formReducer
+  formReducer,
+  drinksReducer,
 }
