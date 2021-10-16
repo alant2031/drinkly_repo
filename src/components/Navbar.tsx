@@ -22,17 +22,10 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" to="/drinks">Drinks</Link>
               </li>
-              
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categories
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><button className="dropdown-item" >Action</button></li>
-                  <li><button className="dropdown-item" >Another action</button></li>
-                  <li><button className="dropdown-item" >Something else here</button></li>
-                </ul>
+              <li className="nav-item">
+                <Link className="nav-link" to="/favorites">Favorites</Link>
               </li>
+              
               <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
               </li>

@@ -9,6 +9,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Drinks from './pages/Drinks'
 import Drink from './pages/Drink'
 import About from './pages/About'
+import Favorites from './pages/Favorites'
 
 
 
@@ -20,6 +21,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/drinks" component={Drinks}/>
+        <Route exact path="/favorites" component={Favorites}/>
         <Route exact path="/drinks/:id" component={Drink}/>
         <Route exact path="/about" component={About}/>
         <Redirect from="*" to="/" />
