@@ -5,6 +5,7 @@ import CategoryBtn from './CategoryBtn'
 
 interface FilterProps {
   handler: (value: boolean) => void
+  categories: any[]
 }
 
 export default function Filter(props: FilterProps) {
@@ -19,12 +20,12 @@ export default function Filter(props: FilterProps) {
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
-      <div className="d-flex mt-4">
-        
-        <CategoryBtn name="ordinary" />
-        <CategoryBtn name="soap" />
-        <CategoryBtn name="bla" />
-        <CategoryBtn name="blo" />
+      <div className="d-flex flex-wrap mt-4">
+        {props.categories.map((category) => (
+         <React.Fragment key={category.strCategory}>
+          <CategoryBtn name={category.strCategory} />
+         </React.Fragment> 
+        ))}
         
       </div>
       <button className="btn btn-info my-4" onClick={() => props.handler(false)}>
