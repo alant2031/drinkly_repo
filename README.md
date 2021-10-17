@@ -18,4 +18,4 @@
 ---
 
 ## Preview:
-[Aqui](https://)
+[Aqui](https://drinkly.vercel.app/)
