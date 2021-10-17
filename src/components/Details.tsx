@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import DtField from './DtField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,10 +7,10 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
 
 
-function checkFavorite(id: number) {
+function checkFavorite(item: any) {
   const arr: any = localStorage.getItem("favorites")
   const favs: any = JSON.parse(arr)
-  return favs.includes(id)
+  return favs.some((fav: any) => fav.idDrink === item.idDrink)
 }
 
 interface DetailsProps {
@@ -36,16 +37,16 @@ export default function Details(props: DetailsProps) {
   const isAlcoholic = item.strAlcoholic === "Alcoholic"
   const custom = item.strAlcoholic === "Alcoholic" ? "danger" : null
 
-  function setFavorite(id: number) {
+  function setFavorite(item: any) {
     const arr: any = localStorage.getItem("favorites")
     const favs: any = JSON.parse(arr)
   
-    if(!favs.includes(id)) {
-      favs.push(id)
+    if(!favs.some((fav: any) => fav.idDrink === item.idDrink)) {
+      favs.push(item)
       localStorage.setItem("favorites", JSON.stringify(favs))
       setIsFavorite(true)
     } else {
-      const newFavs: any = favs.filter((favID: any) =>  favID !== id )
+      const newFavs: any = favs.filter((fav: any) => fav.idDrink !== item.idDrink)
       localStorage.setItem("favorites", JSON.stringify(newFavs))
       setIsFavorite(false)
     }
@@ -53,7 +54,7 @@ export default function Details(props: DetailsProps) {
   }
 
   React.useEffect(() => {
-    setIsFavorite(checkFavorite(+item.idDrink))
+    setIsFavorite(checkFavorite(item))
   }, [])
 
   return (
@@ -65,16 +66,24 @@ export default function Details(props: DetailsProps) {
       </div>
 
       <div id="DETAIL-INFO" className="container-fluid">
+        <div className="d-flex justify-content-end">
+
+        </div>
         <h3 className="d-flex justify-content-between">
         { isAlcoholic ? 
             
-          <span className={`badge text-${custom} align-self-center border border-${custom} fw-bolder me-1`}>
-            <FontAwesomeIcon icon={faExclamation}/> {" "}
+          <span className={`badge text-kombu align-self-center border border-${custom} fw-bolder me-1`}>
+            <FontAwesomeIcon icon={faExclamation}/>{" "}
             {item.strAlcoholic}
           </span> : null
         }
 
-          <div onClick={() => setFavorite(+item.idDrink)} id="favicon" className="badge text-warning fs-1">
+          <div onClick={() => setFavorite({
+            idDrink: item.idDrink,
+            strDrink: item.strDrink,
+            strDrinkThumb: item.strDrinkThumb,
+            strCategory: item.strCategory,
+          })} id="favicon" className="badge text-danger fs-1">
               <FontAwesomeIcon icon={
                 isFavorite ? faHeart : farHeart
               }/>

@@ -5,3 +5,7 @@ body {
 #favicon {
   cursor: pointer;
 }
+
+.thumb {
+  width: 80px
+}

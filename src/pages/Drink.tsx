@@ -34,7 +34,6 @@ export default function Drink(props: any) {
       {
         isLoading ? <Loading /> :
         <React.Fragment>
-
           <Header title="Details" subtitle={drink_state.item.strDrink}/>
           <Content>
             <Details item={drink_state.item}/>
