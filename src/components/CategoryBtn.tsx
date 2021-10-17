@@ -7,9 +7,12 @@ export default function CategoryBtn(props: CategoryBtnProps) {
   
   return (
     
-    <button className="badge rounded-pill me-1 bg-fawn text-kombu">
-      {props.name}
-    </button>
+    <h5>
+
+      <button onClick={props.handler} className="badge text-white rounded-pill mx-1 mb-1 bg-fawn text-kombu">
+        {props.name}
+      </button>
+    </h5>
 
   )
 }
