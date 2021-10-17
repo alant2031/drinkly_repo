@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import Content from '../components/Content'
 import Header from '../components/Header'
@@ -8,34 +9,42 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import List from '../components/List'
 import Loading from '../components/Loading'
 
-import { initialForm, initialDrinks, formReducer, drinksReducer } from '../context'
+import { formReducer, drinksReducer } from '../context'
 import { initCategories } from '../context/actions'
 import { listByCategory } from '../context/actions'
 
+import { Context } from '../context'
+
 
 export default function Drinks() {
+
+  const context: any = React.useContext(Context)
+
+  const { state, updateForm, updateDrinks } = context
+
   const [isLoading, setIsLoading] = React.useState(true)
   const [drinks, setDrinks] = React.useState([])
   const [categories, setCategories] = React.useState([])
   const [showFilter, setShowFilter] = React.useState(false)
-  const [form_state, formDispatch] = React.useReducer(formReducer, initialForm)
-  const [drinks_state, drinksDispatch] = React.useReducer(drinksReducer, initialDrinks)
+  const [form_state, form_dispatch] = React.useReducer(formReducer, state.form)
+  const [drinks_state, drinks_dispatch] = React.useReducer(drinksReducer, state.drinks)
 
   React.useEffect(() => {
-    initCategories(formDispatch)
-      .then(() => listByCategory(drinksDispatch))
+    initCategories(form_dispatch)
+      .then(() => listByCategory(drinks_dispatch))
       .then(() => {
         setTimeout(() => setIsLoading(false), 800)
-        
       })
   }, [])
 
   React.useEffect(() => {
     setCategories(form_state.categories)
+    updateForm(form_state)
   }, [form_state])
 
   React.useEffect(() => {
     setDrinks(drinks_state.list)
+    updateDrinks(drinks_state)
   }, [drinks_state])
 
   return (
@@ -54,7 +63,7 @@ export default function Drinks() {
               : null
             }
             { showFilter ? <Filter categories={categories} handler={setShowFilter}/> : null}
-            <List drinks={drinks}/>
+            <List drinks={state.drinks.list}/>
           </Content>
         </React.Fragment>
       }

@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp, faSearch } from '@fortawesome/free-solid-svg-icons'
 import CategoryBtn from './CategoryBtn'
 
 import { listByCategory } from '../context/actions'
-import { initialDrinks, drinksReducer } from '../context'
+import { drinksReducer } from '../context'
 import { Context } from '../context'
 
 interface FilterProps {
@@ -12,8 +13,13 @@ interface FilterProps {
   handler: (value: boolean) => void
 }
 export default function Filter(props: FilterProps) {
-  const [state, drinksDispatch] = React.useReducer(drinksReducer, initialDrinks)
-  const context = React.useContext(Context)
+  const context: any = React.useContext(Context)
+  const { state, updateDrinks } = context
+  const [drinks_state, drinks_dispatch] = React.useReducer(drinksReducer, state.drinks)
+
+  React.useEffect(() => {
+    updateDrinks(drinks_state)
+  }, [drinks_state])
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -31,7 +37,7 @@ export default function Filter(props: FilterProps) {
         <div className="d-flex flex-wrap mt-1">
           {props.categories.map((category) => (
           <React.Fragment key={category.strCategory}>
-            <CategoryBtn name={category.strCategory} handler={() => console.log(state)}  />
+            <CategoryBtn name={category.strCategory} handler={() => listByCategory(drinks_dispatch, category.strCategory)}/>
           </React.Fragment> 
           ))}
           
