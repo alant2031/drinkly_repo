@@ -1,8 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { Context } from '../context'
 import { listDetails } from '../context/actions'
 import { drinkReducer } from '../context'
 import Loading from '../components/Loading'
+import Header from '../components/Header'
+import Content from '../components/Content'
+import Details from '../components/Details'
 
 export default function Drink(props: any) {
   const { match: { params: { id } } } = props
@@ -27,8 +31,16 @@ export default function Drink(props: any) {
 
   return (
     <div>
-      DRINK DETAILS: 
-      {state.drink.item.strDrink }
+      {
+        isLoading ? <Loading /> :
+        <React.Fragment>
+
+          <Header title="Details" subtitle={drink_state.item.strDrink}/>
+          <Content>
+            <Details item={drink_state.item}/>
+          </Content>
+        </React.Fragment>
+      }
     </div>
   )
 }
