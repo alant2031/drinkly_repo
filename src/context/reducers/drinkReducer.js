@@ -1,13 +1,11 @@
 export default function reducer(state, action) {
-
   switch (action.type) {
-    case 'initCategories':
+    case "listDetails":
       return {
         ...state,
-        categories: action.payload,
+        item: action.payload
       }
     default:
-      return state;
+      return state
   }
-
 }

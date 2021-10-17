@@ -1,7 +1,10 @@
 import { initCategories } from './form'
-import { listByCategory } from './drinks'
+import { listByCategory, listByName } from './drinks'
+import { listDetails } from './drink'
 
 export {
   initCategories,
-  listByCategory
+  listByCategory,
+  listByName,
+  listDetails
 }

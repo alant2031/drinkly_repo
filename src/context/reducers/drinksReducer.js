@@ -5,7 +5,11 @@ export default function reducer(state, action) {
         ...state,
         list: action.payload
       }
-
+    case "listByName":
+      return {
+        ...state,
+        list: action.payload
+      }
     default:
       return state
   }

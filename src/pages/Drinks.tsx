@@ -23,7 +23,6 @@ export default function Drinks() {
   const { state, updateForm, updateDrinks } = context
 
   const [isLoading, setIsLoading] = React.useState(true)
-  const [drinks, setDrinks] = React.useState([])
   const [categories, setCategories] = React.useState([])
   const [showFilter, setShowFilter] = React.useState(false)
   const [form_state, form_dispatch] = React.useReducer(formReducer, state.form)
@@ -43,7 +42,6 @@ export default function Drinks() {
   }, [form_state])
 
   React.useEffect(() => {
-    setDrinks(drinks_state.list)
     updateDrinks(drinks_state)
   }, [drinks_state])
 

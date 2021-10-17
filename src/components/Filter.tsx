@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp, faSearch } from '@fortawesome/free-solid-svg-icons'
 import CategoryBtn from './CategoryBtn'
 
-import { listByCategory } from '../context/actions'
+import { listByCategory, listByName } from '../context/actions'
 import { drinksReducer } from '../context'
 import { Context } from '../context'
 
@@ -16,6 +16,7 @@ export default function Filter(props: FilterProps) {
   const context: any = React.useContext(Context)
   const { state, updateDrinks } = context
   const [drinks_state, drinks_dispatch] = React.useReducer(drinksReducer, state.drinks)
+  const inputRef: any = React.useRef()
 
   React.useEffect(() => {
     updateDrinks(drinks_state)
@@ -26,9 +27,13 @@ export default function Filter(props: FilterProps) {
       <div className="d-flex justify-content-center">
         <div className="me-2">
           <label htmlFor="SearchDrinkName" className="form-label"/>
-          <input type="text" className="form-control" id="SearchDrinkName" placeholder="Search by drink name"></input>
+          <input ref={inputRef} type="text" className="form-control" id="SearchDrinkName" placeholder="Search by drink name"/>
         </div>
-        <button type="button" className="btn btn-primary align-self-end">
+        <button type="button" className="btn btn-primary align-self-end"
+        onClick={() => {
+            listByName(drinks_dispatch, inputRef.current.value)
+            inputRef.current.value = ""
+          }}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>

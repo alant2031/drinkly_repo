@@ -4,7 +4,6 @@ import { Context } from '.'
 const initialState: any = {
   form: {
     categories: [],
-    match: ""
   },
   drinks: {
     list: []
