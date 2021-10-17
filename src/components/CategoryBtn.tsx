@@ -9,7 +9,7 @@ export default function CategoryBtn(props: CategoryBtnProps) {
     
     <h5>
 
-      <button onClick={props.handler} className="badge rounded-pill mx-1 mb-1 bg-fawn text-kombu">
+      <button onClick={props.handler} className="badge text-white rounded-pill mx-1 mb-1 bg-fawn text-kombu">
         {props.name}
       </button>
     </h5>
