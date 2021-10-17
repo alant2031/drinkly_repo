@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import Store from './context/Store'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Store>
+  <Store>
+    <BrowserRouter>
       <App />
-    </Store>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </Store>,
   document.getElementById('root')
 );
 

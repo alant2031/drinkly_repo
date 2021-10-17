@@ -3,7 +3,7 @@ export default function reducer(state, action) {
     case "listByCategory":
       return {
         ...state,
-        drinks: action.payload
+        list: action.payload
       }
 
     default:

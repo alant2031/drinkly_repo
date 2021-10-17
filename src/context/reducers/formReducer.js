@@ -4,7 +4,8 @@ export default function reducer(state, action) {
     case 'initCategories':
       return {
         ...state,
-        categories: action.payload  
+        categories: action.payload  ,
+        another: "testing"
       }
     default:
       return state;

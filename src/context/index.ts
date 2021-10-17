@@ -5,16 +5,16 @@ import drinksReducer from "./reducers/drinksReducer"
 const initialForm: any = {
 
   categories: [],
-  match: null
+  match: null,
 
 }
 
 const initialDrinks: any = {
-  drinks: []
+  list: []
 }
 
 const initialDrink: any = {
-  drink: {},
+  item: {},
   isFavorite: false
 }
 

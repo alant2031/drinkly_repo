@@ -18,25 +18,25 @@ export default function Drinks() {
   const [drinks, setDrinks] = React.useState([])
   const [categories, setCategories] = React.useState([])
   const [showFilter, setShowFilter] = React.useState(false)
-  const [formState, formDispatch] = React.useReducer(formReducer, initialForm)
-  const [drinksState, drinksDispatch] = React.useReducer(drinksReducer, initialDrinks)
+  const [form_state, formDispatch] = React.useReducer(formReducer, initialForm)
+  const [drinks_state, drinksDispatch] = React.useReducer(drinksReducer, initialDrinks)
 
   React.useEffect(() => {
     initCategories(formDispatch)
       .then(() => listByCategory(drinksDispatch))
       .then(() => {
-        setTimeout(() => setIsLoading(false), 1000)
+        setTimeout(() => setIsLoading(false), 800)
         
       })
   }, [])
 
   React.useEffect(() => {
-    setCategories(formState.categories)
-  }, [formState])
+    setCategories(form_state.categories)
+  }, [form_state])
 
   React.useEffect(() => {
-    setDrinks(drinksState.drinks)
-  }, [drinksState])
+    setDrinks(drinks_state.list)
+  }, [drinks_state])
 
   return (
     <div>
