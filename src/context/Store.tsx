@@ -10,7 +10,6 @@ const initialState: any = {
   },
   drink: {
     item: {},
-    isFavorite: false
   },
   favorites: {
     list: []

@@ -14,6 +14,11 @@ import Favorites from './pages/Favorites'
 
 export default function App() {
   
+  React.useEffect(() => {
+    const arr = []
+    !(localStorage.getItem('favorites')) && localStorage.setItem('favorites', JSON.stringify(arr))
+  }, [])
+
   return (
     
     <div className="bg-bone">
