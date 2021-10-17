@@ -6,7 +6,7 @@ import logo from '../assets/logo.png'
 
 export default function Navbar() {
   return (
-    <div>
+    <div className="sticky-top">
       <nav className="navbar navbar-expand-lg navbar-light bg-fawn">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
