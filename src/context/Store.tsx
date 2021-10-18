@@ -10,9 +10,6 @@ const initialState: any = {
   },
   drink: {
     item: {},
-  },
-  favorites: {
-    list: []
   }
 }
 
