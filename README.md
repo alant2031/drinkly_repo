@@ -4,6 +4,7 @@
 
   - ReactJS
   - React Router
+  - Context API
   - TypeScript
   - Bootstrap
   - Font-awesome
