@@ -33,26 +33,26 @@ export default function Favorites() {
                 </thead>
                 <tbody>
 
+                  {
+                    favorites.reverse().map((fav: any) => (
+                      <tr key={fav.idDrink}>
+                        <th scope="row">{fav.idDrink}</th>
+                        <td>
+                          <Link to={`/drinks/${fav.idDrink}`}>
+
+                            {fav.strDrink}({fav.strCategory})
+                          </Link>
+                        </td>
+                        <td>
+                          <div className="thumb">
+
+                            <img className="img-fluid rounded-circle" src={fav.strDrinkThumb} alt={fav.strDrink} />
+                          </div>
+                        </td>
+                      </tr>
+                      ))
+                  }
                 </tbody>
-                {
-                  favorites.map((fav: any) => (
-                    <tr>
-                      <th scope="row">{fav.idDrink}</th>
-                      <td>
-                        <Link to={`/drinks/${fav.idDrink}`}>
-
-                          {fav.strDrink}({fav.strCategory})
-                        </Link>
-                      </td>
-                      <td>
-                        <div className="thumb">
-
-                          <img className="img-fluid rounded-circle" src={fav.strDrinkThumb} alt={fav.strDrink} />
-                        </div>
-                      </td>
-                    </tr>
-                    ))
-                }
               </table>
             </div>
           </Content>

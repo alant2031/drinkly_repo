@@ -30,7 +30,9 @@ export default function Drinks() {
 
   React.useEffect(() => {
     initCategories(form_dispatch)
-      .then(() => listByCategory(drinks_dispatch))
+      .then(() => {
+        return state.drinks.list.length ? null : listByCategory(drinks_dispatch, state.drinks.category)
+      })
       .then(() => {
         setTimeout(() => setIsLoading(false), 800)
       })
