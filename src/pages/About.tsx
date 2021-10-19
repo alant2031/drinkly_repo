@@ -21,7 +21,7 @@ export default function About() {
             <div className="d-block d-sm-flex">
               <div>
                 <h3 className="text-olive">Olá :D</h3>
-                <p className="fs-5">Me chamo Alan Tanaka, sou de Fortaleza. Terminei o Ensino Médio pelo supletivo em 2010. Já morei no Japão por um período de 5 anos a trabalho, onde aprendi o básico do idioma e sobre a cultura local. Comecei a trabalhar com suporte técnico em uma empresa de software PDV em 2016, foi onde comecei a me interessar por programação. Fiz faculdade de Sistemas de Informação onde cursei dois semestres e aprendi os fundamentos básicos. Atualmente foco meus estudos apenas à programação para me tornar um especialista em Desenvolvimento Web. Javascript e Python são minhas linguagens favoritas. </p>
+                <p className="fs-5">Me chamo Alan Tanaka, sou de Fortaleza. Terminei o Ensino Médio pelo supletivo em 2010. Morei no Japão por um período de 5 anos a trabalho, onde aprendi o básico do idioma e sobre a cultura local. Comecei a trabalhar com suporte técnico em uma empresa de software PDV em 2016, foi onde comecei a me interessar por programação. Fiz faculdade de Sistemas de Informação onde cursei dois semestres e aprendi os fundamentos básicos. Atualmente foco meus estudos apenas à programação para me tornar um especialista em Desenvolvimento Web. Javascript e Python são minhas linguagens favoritas. </p>
                 <h4 className="text-olive">Outros fatos:</h4>
                 <p className="fs-5">
                   Minhas outras paixões incluem esportes, video game e xadrez. Gosto de leitura, normalmente leio conteúdo didático envolvendo tecnologia e programação.

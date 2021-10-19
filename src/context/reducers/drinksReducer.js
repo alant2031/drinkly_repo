@@ -3,7 +3,8 @@ export default function reducer(state, action) {
     case "listByCategory":
       return {
         ...state,
-        list: action.payload
+        list: action.payload.list,
+        category: action.payload.category
       }
     case "listByName":
       return {

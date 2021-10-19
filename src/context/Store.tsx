@@ -6,7 +6,8 @@ const initialState: any = {
     categories: [],
   },
   drinks: {
-    list: []
+    list: [],
+    category: null
   },
   drink: {
     item: {},
