@@ -11,7 +11,7 @@ const initialState: any = {
   },
   drink: {
     item: {},
-  },
+  }
 }
 
 
