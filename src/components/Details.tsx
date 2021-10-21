@@ -63,7 +63,7 @@ export default function Details(props: DetailsProps) {
       
       <div id="IMAGE-THUMB" className="shadow-sm align-self-start rounded mb-1">
 
-        <img src={item.strDrinkThumb} alt={item.strDrink} className="fluid img-thumbnail"/>
+        <img src={item.strDrinkThumb} alt={item.strDrink} className="img-fluid img-thumbnail"/>
       </div>
 
       <div id="DETAIL-INFO" className="container-fluid">
