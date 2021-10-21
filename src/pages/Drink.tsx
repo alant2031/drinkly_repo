@@ -17,12 +17,17 @@ export default function Drink(props: any) {
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
-    listDetails(drink_dispatch, id)
-      .then(() => {
-        setTimeout(() => {
-          setIsLoading(false)
-        }, 800)
-      })
+    try {
+      listDetails(drink_dispatch, id)
+        .then(() => {
+          setTimeout(() => {
+            setIsLoading(false)
+          }, 800)
+        })
+    } catch (err) {
+      console.log("aquii")
+      setIsLoading(false)
+    }
   }, [])
 
   React.useEffect(() => {
@@ -36,7 +41,11 @@ export default function Drink(props: any) {
         <React.Fragment>
           <Header title="Details" subtitle={drink_state.item.strDrink}/>
           <Content>
-            <Details item={drink_state.item}/>
+            { drink_state.item.idDrink ? <Details item={drink_state.item}/> : 
+            <div className="alert alert-danger" role="alert">
+              Error: Invalid Drink ID!
+            </div>
+           }
           </Content>
         </React.Fragment>
       }

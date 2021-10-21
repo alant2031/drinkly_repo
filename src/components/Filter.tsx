@@ -18,6 +18,15 @@ export default function Filter(props: FilterProps) {
   const [drinks_state, drinks_dispatch] = React.useReducer(drinksReducer, state.drinks)
   const inputRef: any = React.useRef()
 
+  function enterKeyhandler(e: any) {
+    if (e.key === 'Enter') {
+      
+      listByName(drinks_dispatch, inputRef.current.value)
+      inputRef.current.value = ""
+      
+    }
+  }
+
   React.useEffect(() => {
     updateDrinks(drinks_state)
   }, [drinks_state])
@@ -27,7 +36,8 @@ export default function Filter(props: FilterProps) {
       <div className="d-flex justify-content-center">
         <div className="me-2">
           <label htmlFor="SearchDrinkName" className="form-label"/>
-          <input ref={inputRef} type="text" className="form-control" id="SearchDrinkName" placeholder="Search by drink name"/>
+          <input ref={inputRef} type="text" className="form-control" id="SearchDrinkName" placeholder="Search by drink name"
+          onKeyUp={enterKeyhandler}/>
         </div>
         <button type="button" className="btn btn-primary align-self-end"
         onClick={() => {
@@ -39,7 +49,7 @@ export default function Filter(props: FilterProps) {
       </div>
       <div className="d-flex flex-column container">
         <div className="fs-4 f-italic text-kombu align-self-center mt-3">Categories:</div>
-        <div className="d-flex flex-wrap mt-1">
+        <div className="d-flex justify-content-center flex-wrap mt-1">
           {props.categories.map((category) => (
           <React.Fragment key={category.strCategory}>
             <CategoryBtn name={category.strCategory} handler={() => listByCategory(drinks_dispatch, category.strCategory)}/>

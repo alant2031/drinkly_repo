@@ -10,6 +10,7 @@ import Drinks from './pages/Drinks'
 import Drink from './pages/Drink'
 import About from './pages/About'
 import Favorites from './pages/Favorites'
+import NotFound from './pages/NotFound'
 
 
 export default function App() {
@@ -29,7 +30,8 @@ export default function App() {
         <Route exact path="/favorites" component={Favorites}/>
         <Route exact path="/drinks/:id" component={Drink}/>
         <Route exact path="/about" component={About}/>
-        <Redirect from="*" to="/" />
+        <Route exact path="/not_found" component={NotFound}/>
+        <Redirect from="*" to="/not_found" />
       </Switch>
     </div>
   
