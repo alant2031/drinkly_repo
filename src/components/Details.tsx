@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
-import DtField from './DtField';
+import DetailsField from './DetailsField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamation, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faExclamation, faHeart, faUndo } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
+import { Link } from 'react-router-dom'
 
 
 
 function checkFavorite(item: any) {
   const arr: any = localStorage.getItem("favorites")
-  const favs: any = JSON.parse(arr)
+  const favs: object[] = JSON.parse(arr)
   return favs.some((fav: any) => fav.idDrink === item.idDrink)
 }
 
@@ -90,12 +91,12 @@ export default function Details(props: DetailsProps) {
           </div>
         </h3>
 
-        <DtField title="Category:">
+        <DetailsField title="Category:">
           <span className="fs-5 fst-italic">{item.strCategory}</span> 
-        </DtField>
+        </DetailsField>
         
         <hr />
-        <DtField title="Ingredients:">
+        <DetailsField title="Ingredients:">
           <ul className="mt-1">
             {ingredients.map((ing: any, id) => {
               return (
@@ -103,13 +104,16 @@ export default function Details(props: DetailsProps) {
               )
             })}
           </ul>
-        </DtField>
+        </DetailsField>
           <hr />
-        <DtField title="Instructions:">
+        <DetailsField title="Instructions:">
           <p className="fs-3">
             {item.strInstructions}
           </p>
-        </DtField>
+        </DetailsField>
+        <Link to="/drinks" type="button" className="btn btn-info my-2">
+          <FontAwesomeIcon icon={faUndo}/>
+        </Link>
         
       </div>
     </div>

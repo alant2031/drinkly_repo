@@ -1,7 +1,7 @@
 import React from 'react'
 interface CategoryBtnProps {
   name: string,
-  handler?: () => void
+  handler: () => void
 }
 export default function CategoryBtn(props: CategoryBtnProps) {
   
@@ -9,7 +9,7 @@ export default function CategoryBtn(props: CategoryBtnProps) {
     
     <h5>
 
-      <button onClick={props.handler} className="badge text-white rounded-pill mx-1 mb-1 bg-fawn text-kombu">
+      <button onClick={props.handler} className="badge fs-5 text-white rounded-pill mx-1 mb-1 bg-fawn text-kombu">
         {props.name}
       </button>
     </h5>
