@@ -7,7 +7,11 @@ body {
 }
 
 .thumb {
-  width: 80px
+  width: 70px
+}
+
+.fluid {
+  max-width: 420px;
 }
 
 .insta{

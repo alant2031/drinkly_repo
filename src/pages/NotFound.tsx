@@ -18,7 +18,6 @@ export default function NotFound() {
         <div className="alert alert-dark">
           <span className="fw-bolder">
             404
-            
           </span>
           {" "} /
           Page not found

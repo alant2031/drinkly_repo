@@ -63,7 +63,7 @@ export default function Details(props: DetailsProps) {
       
       <div id="IMAGE-THUMB" className="shadow-sm align-self-start rounded mb-1">
 
-        <img src={item.strDrinkThumb} alt={item.strDrink} className="img-fluid img-thumbnail"/>
+        <img src={item.strDrinkThumb} alt={item.strDrink} className="fluid img-thumbnail"/>
       </div>
 
       <div id="DETAIL-INFO" className="container-fluid">
@@ -107,7 +107,7 @@ export default function Details(props: DetailsProps) {
         </DetailsField>
           <hr />
         <DetailsField title="Instructions:">
-          <p className="fs-3">
+          <p className="fs-4">
             {item.strInstructions}
           </p>
         </DetailsField>
