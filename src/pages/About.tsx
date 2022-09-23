@@ -35,7 +35,7 @@ export default function About() {
                 <a href="https://www.linkedin.com/in/alantanakaa/" target="_blank" rel="noreferrer" className="d-flex justify-content-center rounded-circle">
                   <FontAwesomeIcon className="fs-1 text-primary" icon={faLinkedin}/>
                 </a>
-                <a href="https://github.com/alanctnk" target="_blank" rel="noreferrer" className="d-flex justify-content-center rounded-circle ms-3">
+                <a href="https://github.com/alant2031" target="_blank" rel="noreferrer" className="d-flex justify-content-center rounded-circle ms-3">
                   <FontAwesomeIcon className="fs-1 text-dark" icon={faGithub}/>
                 </a>
               </div>
